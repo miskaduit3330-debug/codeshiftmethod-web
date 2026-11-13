@@ -47,6 +47,7 @@ a{color:#344936}
 </div>
 <script>
 function zSub(e){e.preventDefault();var f=document.getElementById('zf'),b=document.getElementById('zb');b.disabled=true;b.textContent='Posielam…';
+var n=new FormData();n.append('meno',document.getElementById('meno').value);n.append('email',document.getElementById('email').value);fetch('notify.php',{method:'POST',body:n}).catch(function(){});
 var d=new FormData(f);d.append('ml-submit','1');d.append('anticsrf','true');
 fetch('https://assets.mailerlite.com/jsonp/2776335/forms/203959554252211494/subscribe',{method:'POST',body:d,mode:'no-cors'}).catch(function(){}).finally(function(){f.style.display='none';document.getElementById('zok').style.display='block';});return false;}
 </script>
